@@ -43,14 +43,13 @@ This section is divided in two parts.
 
 
 
-- How to call the plugin
+How to call the plugin
 --------------------------
 Here is a concrete example snippet, and below is the same example in its simplest form.
 
 
 
-full example
----------------------
+### full example
 Imagine we are doing an e-commerce website and we have a mini-cart widget.
 The mini-cart widget is an icon, and when you hover it, a drop down list appears,
 listing all the items in your cart.
@@ -74,11 +73,10 @@ function updateByCartInfo(info) {  // this function is called after retrieving t
     }
 }
 ```
----------------------
 
 
-simplest example
----------------------
+### simplest example
+
 
 ```js
 var variables = {"marie": "mary"};  // this dumb/demo map will simply replace marie by mary
@@ -86,7 +84,7 @@ var jClone = $.fn.cloneTemplate(jTpl, variables);
 ```
 
 
-- How to prepare the template
+How to prepare the template
 -------------------------------
 The template, just use this syntax:
 
