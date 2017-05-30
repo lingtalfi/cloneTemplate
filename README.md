@@ -56,7 +56,7 @@ The mini-cart widget is an icon, and when you hover it, a drop down list appears
 listing all the items in your cart.
 
 
-
+```js
 var jMiniCart = $('#mini-cart');
 var jTpl = jMiniCart.find(".templates li:first"); // this template is hidden in my design
 var jListContainer = jMiniCart.find(".mini-products-list");
@@ -73,14 +73,17 @@ function updateByCartInfo(info) {  // this function is called after retrieving t
         jListContainer.append(jClone);
     }
 }
+```
 ---------------------
 
 
 simplest example
 ---------------------
+
+```js
 var variables = {"marie": "mary"};  // this dumb/demo map will simply replace marie by mary
 var jClone = $.fn.cloneTemplate(jTpl, variables);
-
+```
 
 
 - How to prepare the template
