@@ -2,7 +2,7 @@
  * cloneTemplate
  * ===================
  * lingtalfi: 2017-05-30
- *
+ * https://github.com/lingtalfi/cloneTemplate
  *
  *
  * This is a jquery mini-template system.
