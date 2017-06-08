@@ -2,7 +2,10 @@
  * cloneTemplate
  * ===================
  * lingtalfi: 2017-05-30
+ *
  * https://github.com/lingtalfi/cloneTemplate
+ *
+ *
  *
  *
  * This is a jquery mini-template system.
@@ -106,6 +109,29 @@
  *
  *
  *
+ * About images?
+ * ==================
+ * 2017-06-08
+ *
+ * If your template contains images, you might be tempted to do something like this:
+ *
+ * <img src="{-image-}" width="120" height="100">
+ *
+ * Well, don't do that!
+ * I did that, but then checking my logs I realized that the browser actually makes the request to the
+ * non existing "{-image-}" uri.
+ *
+ * We obviously don't want that.
+ * Unfortunately, there is no simple mechanism to get rid of that problem with html,
+ * so instead I implemented a little "workaround" in cloneTemplate:
+ *
+ * just replace the src attribute with the data-src attribute, and cloneTemplate will magically handle the rest for you :)
+ *
+ * <img data-src="{-image-}" width="120" height="100">
+ *
+ *
+ *
+ *
  *
  *
  *
@@ -140,7 +166,12 @@
             var value = vars[name];
             content = tplEngine(content, name, value);
         }
-        return $(content);
+        var jRet = $(content);
+
+        jRet.find('img').each(function () {
+            $(this).attr('src', $(this).attr("data-src"));
+        });
+        return jRet;
     };
 
 

@@ -106,12 +106,43 @@ Enjoy!
 
 
 
+ 
+ 
+About images?
+==================
+2017-06-08
+
+If your template contains images, you might be tempted to do something like this:
+ 
+```html
+<img src="{-image-}" width="120" height="100">
+```
+ 
+Well, don't do that!
+I did that, but then checking my logs I realized that the browser actually makes the request to the
+non existing "{-image-}" uri.
+ 
+We obviously don't want that.
+Unfortunately, there is no simple mechanism to get rid of that problem with html,
+so instead I implemented a little "workaround" in cloneTemplate:
+ 
+just replace the src attribute with the data-src attribute, and cloneTemplate will magically handle the rest for you :)
+ 
+```html
+<img data-src="{-image-}" width="120" height="100">
+```
+
+
 
 
 
 History Log
 ------------------
     
+- 1.1.0 -- 2017-06-08
+
+    - add data-src work around for images
+
 - 1.0.0 -- 2017-05-30
 
     - initial commit
